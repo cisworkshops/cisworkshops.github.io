@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CIS Workshops Sign-Up Hub</title>
+    
+    <style>
+        /* --- Universal Styles & Font Imports --- */
+        :root {
+            --primary-color: #005A9C; /* A professional blue */
+            --primary-hover-color: #004070;
+            --light-gray: #f4f7f6;
+            --medium-gray: #eeeeee;
+            --dark-text: #333333;
+            --white-color: #ffffff;
+            --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --card-hover-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+        }
+
+        /* A modern CSS reset for consistency */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--light-gray);
+            color: var(--dark-text);
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* --- Layout & Container --- */
+        .container {
+            width: 90%;
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+            flex-grow: 1;
+        }
+
+        /* --- Header & Footer --- */
+        .page-header {
+            padding: 1.5rem 1rem;
+            background-color: var(--white-color);
+            box-shadow: var(--card-shadow);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .page-header .header-logo {
+            max-height: 60px;
+            width: auto;
+        }
+
+        .page-header h1 {
+            color: var(--primary-color);
+            font-size: 2rem;
+            margin: 0;
+        }
+
+        .page-footer {
+            margin-top: 2rem;
+            padding: 1.5rem 1rem;
+            font-size: 0.9rem;
+            color: #777;
+            text-align: center;
+        }
+        
+        /* --- Workshop Card Styling --- */
+        .workshop-card {
+            background-color: var(--white-color);
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--card-shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .workshop-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--card-hover-shadow);
+        }
+
+        .workshop-card h2 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            font-size: 1.75rem;
+        }
+
+        .workshop-card p {
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+        }
+
+        /* --- Individual Session List Styling --- */
+        .session-list {
+            list-style: none;
+            margin-top: 2rem;
+            padding: 0;
+        }
+
+        .session-list li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--medium-gray);
+            flex-wrap: wrap; /* Allows stacking on mobile */
+            gap: 10px; /* Space between items when they wrap */
+        }
+
+        .session-list li:last-child {
+            border-bottom: none; /* No line on the last item */
+        }
+
+        .session-title {
+            font-weight: 500;
+            flex-grow: 1; /* Allows title to take available space */
+            margin-right: 1rem; /* Space between title and button */
+        }
+
+        /* --- Button Styling --- */
+        .signup-btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: var(--white-color);
+            padding: 8px 20px; /* Smaller padding for list buttons */
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.9rem;
+            border-radius: 5px;
+            text-align: center;
+            transition: background-color 0.2s ease-in-out;
+            white-space: nowrap; /* Prevents button text from wrapping */
+            flex-shrink: 0; /* Prevents button from shrinking */
+        }
+
+        .signup-btn:hover {
+            background-color: var(--primary-hover-color);
+        }
+
+        /* --- Responsive Adjustments --- */
+        @media (max-width: 768px) {
+            .page-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            .page-header .header-logo {
+                margin-bottom: 10px;
+                max-height: 50px;
+            }
+            .page-header h1 {
+                font-size: 1.8rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .page-header h1 {
+                font-size: 1.5rem;
+            }
+            .workshop-card {
+                padding: 1.5rem;
+            }
+            .workshop-card h2 {
+                font-size: 1.4rem;
+            }
+            .session-list li {
+                flex-direction: column; /* Stack title and button vertically */
+                align-items: flex-start; /* Align to the left */
+            }
+            .session-title {
+                margin-bottom: 10px; /* Add space below title on mobile */
+                margin-right: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="page-header">
+        <img src="data:image/png;base64,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" 
+             alt="CIS Logo" class="header-logo">
+        <h1>CIS Workshops Sign-Up Hub</h1>
+    </header>
+
+    <main class="container">
+        <p style="text-align: center; margin-bottom: 2.5rem; font-size: 1.1rem;">
+            Welcome! Below are the study workshops available for the current semester. Select your workshop below by right-clicking (or pressing and holding on a phone) “Register” to open the registration form in a new tab.
+        </p>
+
+        <!-- Network+ Workshop Card -->
+        <div class="workshop-card">
+            <h2>CompTIA Network+ Study Workshop</h2>
+            <p>
+                Join our guided study group to prepare for the CompTIA Network+ (N10-009) certification exam. Select a session below to register.
+            </p>
+            
+            <ul class="session-list">
+                <!-- IMPORTANT: Replace the href="#" with your registration link for each session -->
+                <li>
+                    <span class="session-title">Domain 1: Networking Fundamentals</span>
+                    <p class="session-info">Date: August 29th, 2025</p>
+                    <a href="#netplus-domain1" target="_blank" rel="noopener noreferrer" class="signup-btn">Register</a>
+                </li>
+                <li>
+                    <span class="session-title">Domain 2: Network Implementations</span>
+                    <a href="#netplus-domain2" target="_blank" rel="noopener noreferrer" class="signup-btn">Register</a>
+                </li>
+                <li>
+                    <span class="session-title">Domain 3: Network Operations</span>
+                    <a href="#netplus-domain3" target="_blank" rel="noopener noreferrer" class="signup-btn">Register</a>
+                </li>
+                <li>
+                    <span class="session-title">Domain 4: Network Security</span>
+                    <a href="#netplus-domain4" target="_blank" rel="noopener noreferrer" class="signup-btn">Register</a>
+                </li>
+                <li>
+                    <span class="session-title">Domain 5: Network Troubleshooting</span>
+                    <a href="#netplus-domain5" target="_blank" rel="noopener noreferrer" class="signup-btn">Register</a>
+                </li>
+                <li>
+                    <span class="session-title">All-Domain Review Day</span>
+                    <a href="#netplus-review" target="_blank" rel="noopener noreferrer" class="signup-btn">Register</a>
+                </li>
+                <li>
+                    <span class="session-title">Simulated Exam Day</span>
+                    <a href="#netplus-exam" target="_blank" rel="noopener noreferrer" class="signup-btn">Register</a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Security+ Workshop Card -->
+        <div class="workshop-card">
+            <h2>CompTIA Security+ Study Workshop</h2>
+            <p>
+                This workshop prepares you for the CompTIA Security+ (SY0-701) certification. Learn the essential principles for network security and risk management by registering for a session.
+            </p>
+
+            <ul class="session-list">
+                <!-- IMPORTANT: Replace the href="#" with your registration link for each session -->
+                <li>
+                    <span class="session-title">Domain 1: General Security Concepts</span>
+                    <a href="#secplus-domain1" target="_blank" rel="noopener noreferrer" class="signup-btn">Register</a>
+                </li>
+                <li>
+                    <span class="session-title">Domain 2: Threats, Vulnerabilities, & Mitigations</span>
+                    <a href="#secplus-domain2" target="_blank" rel="noopener noreferrer" class="signup-btn">Register</a>
+                </li>
+                <li>
+                    <span class="session-title">Domain 3: Security Architecture</span>
+                    <a href="#secplus-domain3" target="_blank" rel="noopener noreferrer" class="signup-btn">Register</a>
+                </li>
+                <li>
+                    <span class="session-title">Domain 4: Security Operations</span>
+                    <a href="#secplus-domain4" target="_blank" rel="noopener noreferrer" class="signup-btn">Register</a>
+                </li>
+                <li>
+                    <span class="session-title">Domain 5: Security Program Management & Oversight</span>
+                    <a href="#secplus-domain5" target="_blank" rel="noopener noreferrer" class="signup-btn">Register</a>
+                </li>
+                 <li>
+                    <span class="session-title">All-Domain Review Day</span>
+                    <a href="#secplus-review" target="_blank" rel="noopener noreferrer" class="signup-btn">Register</a>
+                </li>
+                <li>
+                    <span class="session-title">Simulated Exam Day</span>
+                    <a href="#secplus-exam" target="_blank" rel="noopener noreferrer" class="signup-btn">Register</a>
+                </li>
+            </ul>
+        </div>
+
+    </main>
+
+    <footer class="page-footer">
+        <p>&copy; 2025 Gwinnett Technical College, CIS</p>
+    </footer>
+
+</body>
+</html>
