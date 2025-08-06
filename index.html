@@ -102,12 +102,20 @@
         }
 
         /* --- Individual Session List Styling --- */
+	.session-details {
+    	    flex-grow: 1;
+    	    margin-right: 1rem;
+	}
+	.session-info {
+    	    font-size: 0.9rem;
+    	    color: #666;
+    	    margin: 0;
+	}
         .session-list {
             list-style: none;
             margin-top: 2rem;
             padding: 0;
         }
-
         .session-list li {
             display: flex;
             justify-content: space-between;
@@ -181,6 +189,10 @@
                 margin-bottom: 10px; /* Add space below title on mobile */
                 margin-right: 0;
             }
+	    .session-details {
+        	margin-bottom: 10px; /* Space between text and button on mobile */
+        	margin-right: 0;
+    	    }
         }
     </style>
 </head>
@@ -194,7 +206,7 @@
 
     <main class="container">
         <p style="text-align: center; margin-bottom: 2.5rem; font-size: 1.1rem;">
-            Welcome! Below are the study workshops available for the current semester. Select your workshop below by right-clicking (or pressing and holding on a phone) “Register” to open the registration form in a new tab.
+            Welcome! Below are the study workshops available for the Fall semester. Select your workshop below by clicking "Register" on your chosen session to open the registration form.
         </p>
 
         <!-- Network+ Workshop Card -->
@@ -208,31 +220,37 @@
                 <!-- IMPORTANT: Replace the href="#" with your registration link for each session -->
                 <li>
                     <span class="session-title">Domain 1: Networking Fundamentals</span>
-                    <p class="session-info">Date: August 29th, 2025</p>
+                    <p class="session-info">Date: August 28th, 2025 | Time: 2:00 PM - 4:00 PM | Location: Room B204</p>
                     <a href="#netplus-domain1" target="_blank" rel="noopener noreferrer" class="signup-btn">Register</a>
                 </li>
                 <li>
                     <span class="session-title">Domain 2: Network Implementations</span>
+		    <p class="session-info">Date: September 4th, 2025 | Time: 2:00 PM - 4:00 PM | Location: Room B204</p>
                     <a href="#netplus-domain2" target="_blank" rel="noopener noreferrer" class="signup-btn">Register</a>
                 </li>
                 <li>
                     <span class="session-title">Domain 3: Network Operations</span>
+		    <p class="session-info">Date: September 11th, 2025 | Time: 2:00 PM - 4:00 PM | Location: Room B204</p>
                     <a href="#netplus-domain3" target="_blank" rel="noopener noreferrer" class="signup-btn">Register</a>
                 </li>
                 <li>
                     <span class="session-title">Domain 4: Network Security</span>
+		    <p class="session-info">Date: September 18th, 2025 | Time: 2:00 PM - 4:00 PM | Location: Room B204</p>
                     <a href="#netplus-domain4" target="_blank" rel="noopener noreferrer" class="signup-btn">Register</a>
                 </li>
                 <li>
                     <span class="session-title">Domain 5: Network Troubleshooting</span>
+		    <p class="session-info">Date: September 25th, 2025 | Time: 2:00 PM - 4:00 PM | Location: Room B204</p>
                     <a href="#netplus-domain5" target="_blank" rel="noopener noreferrer" class="signup-btn">Register</a>
                 </li>
                 <li>
                     <span class="session-title">All-Domain Review Day</span>
+		    <p class="session-info">Date: October 2nd, 2025 | Time: 2:00 PM - 4:00 PM | Location: Room B204</p>
                     <a href="#netplus-review" target="_blank" rel="noopener noreferrer" class="signup-btn">Register</a>
                 </li>
                 <li>
                     <span class="session-title">Simulated Exam Day</span>
+		    <p class="session-info">Date: October 9th, 2025 | Time: 2:00 PM - 4:00 PM | Location: Room B204</p>
                     <a href="#netplus-exam" target="_blank" rel="noopener noreferrer" class="signup-btn">Register</a>
                 </li>
             </ul>
