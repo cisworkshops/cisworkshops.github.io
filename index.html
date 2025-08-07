@@ -13,6 +13,7 @@
             --light-gray: #f4f7f6;
             --medium-gray: #eeeeee;
             --dark-text: #333333;
+            --light-text: #666;
             --white-color: #ffffff;
             --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
             --card-hover-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
@@ -102,38 +103,39 @@
         }
 
         /* --- Individual Session List Styling --- */
-	.session-details {
-    	    flex-grow: 1;
-    	    margin-right: 1rem;
-	}
-	.session-info {
-    	    font-size: 0.9rem;
-    	    color: #666;
-    	    margin: 0;
-	}
         .session-list {
             list-style: none;
             margin-top: 2rem;
             padding: 0;
         }
+
         .session-list li {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 1rem 0;
             border-bottom: 1px solid var(--medium-gray);
-            flex-wrap: wrap; /* Allows stacking on mobile */
-            gap: 10px; /* Space between items when they wrap */
+            flex-wrap: wrap;
+            gap: 10px;
         }
 
         .session-list li:last-child {
-            border-bottom: none; /* No line on the last item */
+            border-bottom: none;
+        }
+
+        .session-details {
+            flex-grow: 1;
+            margin-right: 1rem;
         }
 
         .session-title {
             font-weight: 500;
-            flex-grow: 1; /* Allows title to take available space */
-            margin-right: 1rem; /* Space between title and button */
+        }
+        
+        .session-info {
+            font-size: 0.9rem;
+            color: var(--light-text);
+            margin: 0;
         }
 
         /* --- Button Styling --- */
@@ -141,15 +143,15 @@
             display: inline-block;
             background-color: var(--primary-color);
             color: var(--white-color);
-            padding: 8px 20px; /* Smaller padding for list buttons */
+            padding: 8px 20px;
             text-decoration: none;
             font-weight: bold;
             font-size: 0.9rem;
             border-radius: 5px;
             text-align: center;
             transition: background-color 0.2s ease-in-out;
-            white-space: nowrap; /* Prevents button text from wrapping */
-            flex-shrink: 0; /* Prevents button from shrinking */
+            white-space: nowrap;
+            flex-shrink: 0;
         }
 
         .signup-btn:hover {
@@ -182,25 +184,21 @@
                 font-size: 1.4rem;
             }
             .session-list li {
-                flex-direction: column; /* Stack title and button vertically */
-                align-items: flex-start; /* Align to the left */
+                flex-direction: column;
+                align-items: flex-start;
             }
-            .session-title {
-                margin-bottom: 10px; /* Add space below title on mobile */
+            .session-details {
+                margin-bottom: 10px;
                 margin-right: 0;
             }
-	    .session-details {
-        	margin-bottom: 10px; /* Space between text and button on mobile */
-        	margin-right: 0;
-    	    }
         }
     </style>
 </head>
 <body>
 
     <header class="page-header">
-        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGIAAABbCAMAAAC/DqBZAAAAkFBMVEVHcEwILXR0vB8JLHQILXQILXQILHQJLHMFOHwILHQGMnsNMHMILXQAVrkILXQJLHQILXUHLHQJLXUILXUILXQJLHUILHRzvB0AVrh0vR4AVrlzux50vB4AVrp1vh6Lx+kAWLuKxuhzux50vB8AVbgAVbYAW8QAVreKxeiJxugJySAJLXUJMHuMyet6xiAAXcdphy9MAAAAKnRSTlMAgP1n4IzC/AS0IROX/aMy0kNP7nP5XCJo1+BBqX+d0kzb6nadlKekqcrJRXt0AAAGZUlEQVRo3s1ZibabNhCVghBaiDYETZq02dqkPagv//93nRGLgWc/jJ992nt8MCDQ1Yxm0QhCHodP/2TcoytBPn//8eP7OzhZ4cs9Kd79BPzxYIq3b3/++R9QfLo7BSrq4/sR3+4rBSHqM0DBydenjDdPH4Hvr0+Iv+9loIIIVNP7pzcZmeK+EADs9EEUgpy6e6AU11GIG4Cv/TLiUVII8gE7BRP6qncpdM0Pw0A3H8ZO32QxRqN9OkMhSJn6dBTNguJrpvj2+4gPZwSWqa2Ooa3YMymWZnaGouqPoepXFHprMxcoDknRsmeKetEyRilum4unWVHi3W8T1DmKKjl6BBEpRj0NRkvU258TNllwoiiPu8bK9YBiwiWK+rB3zz1owFUUN/q9IKZpGv5YCgmuCxb2UIq2bd1NFGd8aNM+vs/BiG+QYup9ZlnP8qkZzrqyLOPRucjZQFmrxIWYg2aklBbLQRyUQheStX3fMtmJIX1GiYjDheiguWobJqMaBYR3fp3xeYcC/iJLaQh4oOUO+yQGzKZPJp97d2pupX2ePcn5ADJRCKLBCiHW9UNs7NHvBakh4rf4EDC06RQR+9TS7Zj3KIjmCfsfOsB/dHyQYnpINz02jwPoWxiCuCbSzhRzbM+RN3eWKtDFiYLm9tQ3LbZXic9jG7BHASaYWmRIjYlUokqSs2QpBc9n3CrlS5izRk1jow1CPpdpK4VLeeQmj8aCW8HZQlFEsB7PwvBywYp5Dku0gZNQFyhgLgcGOa0kJSWjRa0p+Jh29HKZ0fbVFRRl1nQ7Sz+H0/mhUcxWUq9Xj5SDBncpBk0vFCq2FHSYLDSHRhYrKa6hADXki42pryg0S9VkssBCxWGKrOl4mUIQ6xauCfOrxTEKNybyy1KAHJRln8mytKNWj84F34bdBUX+hdq1g2fCXXuylKstqmrtNM3grWJDMQXvzgyhJMVjFKNfcKzgMEK77NtrKWo7pgk1zFx5hOLk3TzHaAzbbdxMtwEzGh1Pnuzv+ukmYYxRFTcGCNBmpNr6BUSwwltfDo92B6WAzmbXGqJ6mxaRlhTYnFsx3KLdNvqQ0aKS+exaY1QPS0WZwVqxcRwAPWS0w53cy5SWUhNwAuasR2KT+mXWM0QclAL/OpeG7AxHo0aLQuTuVPa8NNQLTTwao6bsG4yD9MI4tWMg7GpEN9bznkrHGubMDWFwEV0hR67WSdtqTuhNvD9EcVpNXlwNivVi8QaKW5bP+xTitdilKMlrQXcoele+Frx/keJoUXwWOWC9QFG9HnsU98FFira6F9rzFDzdE/ycf1F5T7ze+P93EI8FUjj2SDjMJCz1jwPuJ0Dpm8Ycv/NbeX7fX/VOOywRcRV/1VZjUCd41l/10rDywVVZdUVIiKf0KXAddQVFOyzfhvq22qeQKzs0+xTVqXpAjlTts8DScwbf779Ki/pk2s7YCW3LVNK3ewE9JRdWqxkRJOvvGAX7Ztz8WS2JtA1dcR90wernW1ji/h+Xzn8SOn0YEnOpvdkD2lZ/+SuVmFeEea/h8nB90FphWaeVEkrkPRk4F9Z7BZWKxR8hcPQabxEVLFECnoQltcrPBgsEFlep55dxtSyj5aTmxITawl+MoRHeWEepLZnsIndQwXeS1fmWd6VUUhGpuCHG007BjQCerAilZ/cSPScwSK6kU1wYS1nRxQC91ZZ7D74GgytirukNUXBLcA9XMnZOGeappwE3OIWoaQkUZ5fZQZLIdCFjAVnR2NLXvOuK6Kh1sRDCeCEixQzgjVAuRpF3cWRNgcJKbmkwuHVkWWQg/3kT4DQ4rZLXyRNp6yDaoiiJk9aFAOoASWB8uCkoicJbBe9qVBQIrmyyZWddV/uadgZGWYRzc6EjVirgMfDzGqbTWgXz6eE+VL9wjYrE8ggUVMBckFB2Imj4eQ3N0OhpoaFrHVSkxS3WLTafoba+u4jDL2XxyRHEyTEWL4o1y/JycJDhUy4RRFzrygWXoBpR8hq/fdQ5zAxHIyVWsJRDmQmGIo2+rd7pmkDRXB30ARPR4BBVo/MmbRfAN0vnI5R6JQ9B3EaBe46AxkKXmliXN25yvtdMgikRZq2B6pWy8cnjFNFpDzYGaqIOPI7hHr/KR80CbjpKozjIV0pvb4yiQjIGg1Sw0gIm1eAfHj1QOFdAYHIO8g54rHMvzcW/Xzl7y5zv6eAAAAAASUVORK5CYII=" 
-             alt="CIS Logo" class="header-logo">
+        <!-- Image now links to a file. Make sure CISlogo.png is in the same folder as this HTML file. -->
+        <img src="CISlogo.png" alt="CIS Department Logo" class="header-logo">
         <h1>CIS Workshops Sign-Up Hub</h1>
     </header>
 
@@ -208,50 +206,63 @@
         <p style="text-align: center; margin-bottom: 2.5rem; font-size: 1.1rem;">
             Welcome! Below are the study workshops available for the Fall semester. Select your workshop below by clicking "Register" on your chosen session to open the registration form.
         </p>
-
         <!-- Network+ Workshop Card -->
         <div class="workshop-card">
             <h2>CompTIA Network+ Study Workshop</h2>
             <p>
-                Join our guided study group to prepare for the CompTIA Network+ (N10-009) certification exam. Select a session below to register.
+                Join our guided study group to prepare for the CompTIA Network+ (N10-008) certification exam. Select a session below to register.
             </p>
             
             <ul class="session-list">
                 <!-- IMPORTANT: Replace the href="#" with your registration link for each session -->
                 <li>
-                    <span class="session-title">Domain 1: Networking Fundamentals</span>
-                    <p class="session-info">Date: August 28th, 2025 | Time: 2:00 PM - 4:00 PM | Location: Room B204</p>
-                    <a href="#netplus-domain1" target="_blank" rel="noopener noreferrer" class="signup-btn">Register</a>
+                    <div class="session-details">
+                        <span class="session-title">Domain 1: Networking Fundamentals</span>
+                        <p class="session-info">Date: August 28th, 2025 | Time: 2:00 PM - 4:00 PM | Location: Room B204</p>
+                    </div>
+                    <a href="#" target="_blank" rel="noopener noreferrer" class="signup-btn">Register</a>
                 </li>
                 <li>
-                    <span class="session-title">Domain 2: Network Implementations</span>
-		    <p class="session-info">Date: September 4th, 2025 | Time: 2:00 PM - 4:00 PM | Location: Room B204</p>
-                    <a href="#netplus-domain2" target="_blank" rel="noopener noreferrer" class="signup-btn">Register</a>
+                    <div class="session-details">
+                        <span class="session-title">Domain 2: Network Implementations</span>
+                        <p class="session-info">Date: September 4th, 2025 | Time: 2:00 PM - 4:00 PM | Location: Room B204</p>
+                    </div>
+                    <a href="#" target="_blank" rel="noopener noreferrer" class="signup-btn">Register</a>
                 </li>
                 <li>
-                    <span class="session-title">Domain 3: Network Operations</span>
-		    <p class="session-info">Date: September 11th, 2025 | Time: 2:00 PM - 4:00 PM | Location: Room B204</p>
-                    <a href="#netplus-domain3" target="_blank" rel="noopener noreferrer" class="signup-btn">Register</a>
+                    <div class="session-details">
+                        <span class="session-title">Domain 3: Network Operations</span>
+                        <p class="session-info">Date: September 11th, 2025 | Time: 2:00 PM - 4:00 PM | Location: Room B204</p>
+                    </div>
+                    <a href="#" target="_blank" rel="noopener noreferrer" class="signup-btn">Register</a>
                 </li>
                 <li>
-                    <span class="session-title">Domain 4: Network Security</span>
-		    <p class="session-info">Date: September 18th, 2025 | Time: 2:00 PM - 4:00 PM | Location: Room B204</p>
-                    <a href="#netplus-domain4" target="_blank" rel="noopener noreferrer" class="signup-btn">Register</a>
+                    <div class="session-details">
+                        <span class="session-title">Domain 4: Network Security</span>
+                        <p class="session-info">Date: September 18th, 2025 | Time: 2:00 PM - 4:00 PM | Location: Room B204</p>
+                    </div>
+                    <a href="#" target="_blank" rel="noopener noreferrer" class="signup-btn">Register</a>
                 </li>
                 <li>
-                    <span class="session-title">Domain 5: Network Troubleshooting</span>
-		    <p class="session-info">Date: September 25th, 2025 | Time: 2:00 PM - 4:00 PM | Location: Room B204</p>
-                    <a href="#netplus-domain5" target="_blank" rel="noopener noreferrer" class="signup-btn">Register</a>
+                    <div class="session-details">
+                        <span class="session-title">Domain 5: Network Troubleshooting</span>
+                        <p class="session-info">Date: September 25th, 2025 | Time: 2:00 PM - 4:00 PM | Location: Room B204</p>
+                    </div>
+                    <a href="#" target="_blank" rel="noopener noreferrer" class="signup-btn">Register</a>
                 </li>
                 <li>
-                    <span class="session-title">All-Domain Review Day</span>
-		    <p class="session-info">Date: October 2nd, 2025 | Time: 2:00 PM - 4:00 PM | Location: Room B204</p>
-                    <a href="#netplus-review" target="_blank" rel="noopener noreferrer" class="signup-btn">Register</a>
+                    <div class="session-details">
+                        <span class="session-title">All-Domain Review Day</span>
+                        <p class="session-info">Date: October 2nd, 2025 | Time: 2:00 PM - 4:00 PM | Location: Room B204</p>
+                    </div>
+                    <a href="#" target="_blank" rel="noopener noreferrer" class="signup-btn">Register</a>
                 </li>
                 <li>
-                    <span class="session-title">Simulated Exam Day</span>
-		    <p class="session-info">Date: October 9th, 2025 | Time: 2:00 PM - 4:00 PM | Location: Room B204</p>
-                    <a href="#netplus-exam" target="_blank" rel="noopener noreferrer" class="signup-btn">Register</a>
+                    <div class="session-details">
+                        <span class="session-title">Simulated Exam Day</span>
+                        <p class="session-info">Date: October 9th, 2025 | Time: 2:00 PM - 4:00 PM | Location: Room B204</p>
+                    </div>
+                    <a href="#" target="_blank" rel="noopener noreferrer" class="signup-btn">Register</a>
                 </li>
             </ul>
         </div>
@@ -260,38 +271,59 @@
         <div class="workshop-card">
             <h2>CompTIA Security+ Study Workshop</h2>
             <p>
-                This workshop prepares you for the CompTIA Security+ (SY0-701) certification. Learn the essential principles for network security and risk management by registering for a session.
+                This workshop prepares you for the CompTIA Security+ (SY0-701) certification. Learn the essential principles by registering for a session.
             </p>
 
             <ul class="session-list">
                 <!-- IMPORTANT: Replace the href="#" with your registration link for each session -->
                 <li>
-                    <span class="session-title">Domain 1: General Security Concepts</span>
-                    <a href="#secplus-domain1" target="_blank" rel="noopener noreferrer" class="signup-btn">Register</a>
+                    <div class="session-details">
+                        <span class="session-title">Domain 1: General Security Concepts</span>
+                        <p class="session-info">Date: August 26th, 2025 | Time: 2:00 PM - 4:00 PM | Location: Room B206</p>
+                    </div>
+                    <a href="#" target="_blank" rel="noopener noreferrer" class="signup-btn">Register</a>
                 </li>
                 <li>
-                    <span class="session-title">Domain 2: Threats, Vulnerabilities, & Mitigations</span>
-                    <a href="#secplus-domain2" target="_blank" rel="noopener noreferrer" class="signup-btn">Register</a>
+                    <div class="session-details">
+                        <span class="session-title">Domain 2: Threats, Vulnerabilities, & Mitigations</span>
+                        <p class="session-info">Date: September 2nd, 2025 | Time: 2:00 PM - 4:00 PM | Location: Room B206</p>
+                    </div>
+                    <a href="#" target="_blank" rel="noopener noreferrer" class="signup-btn">Register</a>
                 </li>
                 <li>
-                    <span class="session-title">Domain 3: Security Architecture</span>
-                    <a href="#secplus-domain3" target="_blank" rel="noopener noreferrer" class="signup-btn">Register</a>
+                    <div class="session-details">
+                        <span class="session-title">Domain 3: Security Architecture</span>
+                        <p class="session-info">Date: September 9th, 2025 | Time: 2:00 PM - 4:00 PM | Location: Room B206</p>
+                    </div>
+                    <a href="#" target="_blank" rel="noopener noreferrer" class="signup-btn">Register</a>
                 </li>
                 <li>
-                    <span class="session-title">Domain 4: Security Operations</span>
-                    <a href="#secplus-domain4" target="_blank" rel="noopener noreferrer" class="signup-btn">Register</a>
+                    <div class="session-details">
+                        <span class="session-title">Domain 4: Security Operations</span>
+                        <p class="session-info">Date: September 16th, 2025 | Time: 2:00 PM - 4:00 PM | Location: Room B206</p>
+                    </div>
+                    <a href="#" target="_blank" rel="noopener noreferrer" class="signup-btn">Register</a>
                 </li>
                 <li>
-                    <span class="session-title">Domain 5: Security Program Management & Oversight</span>
-                    <a href="#secplus-domain5" target="_blank" rel="noopener noreferrer" class="signup-btn">Register</a>
+                    <div class="session-details">
+                        <span class="session-title">Domain 5: Security Program Management & Oversight</span>
+                        <p class="session-info">Date: September 23rd, 2025 | Time: 2:00 PM - 4:00 PM | Location: Room B206</p>
+                    </div>
+                    <a href="#" target="_blank" rel="noopener noreferrer" class="signup-btn">Register</a>
                 </li>
                  <li>
-                    <span class="session-title">All-Domain Review Day</span>
-                    <a href="#secplus-review" target="_blank" rel="noopener noreferrer" class="signup-btn">Register</a>
+                    <div class="session-details">
+                        <span class="session-title">All-Domain Review Day</span>
+                        <p class="session-info">Date: September 30th, 2025 | Time: 2:00 PM - 4:00 PM | Location: Room B206</p>
+                    </div>
+                    <a href="#" target="_blank" rel="noopener noreferrer" class="signup-btn">Register</a>
                 </li>
                 <li>
-                    <span class="session-title">Simulated Exam Day</span>
-                    <a href="#secplus-exam" target="_blank" rel="noopener noreferrer" class="signup-btn">Register</a>
+                    <div class="session-details">
+                        <span class="session-title">Simulated Exam Day</span>
+                        <p class="session-info">Date: October 7th, 2025 | Time: 2:00 PM - 4:00 PM | Location: Room B206</p>
+                    </div>
+                    <a href="#" target="_blank" rel="noopener noreferrer" class="signup-btn">Register</a>
                 </li>
             </ul>
         </div>
