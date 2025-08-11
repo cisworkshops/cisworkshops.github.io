@@ -26,6 +26,10 @@
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth; /* For any future anchor links */
+        }
+
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             background-color: var(--light-gray);
@@ -138,7 +142,14 @@
             margin: 0;
         }
 
-        /* --- Button Styling --- */
+        /* --- Button & Button Group Styling --- */
+        .button-group {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            flex-shrink: 0;
+        }
+
         .signup-btn {
             display: inline-block;
             background-color: var(--primary-color);
@@ -151,13 +162,43 @@
             text-align: center;
             transition: background-color 0.2s ease-in-out;
             white-space: nowrap;
-            flex-shrink: 0;
         }
 
         .signup-btn:hover {
             background-color: var(--primary-hover-color);
         }
 
+        .calendar-btn {
+            display: inline-block;
+            padding: 7px 12px; /* 1px less padding to account for border */
+            font-size: 0.9rem;
+            background-color: #eaf0f6;
+            color: var(--primary-color);
+            border: 1px solid var(--primary-color);
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.2s ease, color 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .calendar-btn:hover {
+            background-color: var(--primary-color);
+            color: var(--white-color);
+        }
+
+        .signup-btn.disabled {
+    	    background-color: #a0a0a0; /* Gray for disabled */
+    	    cursor: not-allowed;
+    	    pointer-events: none; /* Makes the button unclickable */
+        }
+
+        .signup-btn.full {
+    		background-color: #c0392b; /* A soft red for 'Full' */
+    		cursor: not-allowed;
+    		pointer-events: none;
+        }
+	
         /* --- Responsive Adjustments --- */
         @media (max-width: 768px) {
             .page-header {
@@ -197,7 +238,6 @@
 <body>
 
     <header class="page-header">
-        <!-- Image now links to a file. Make sure CISlogo.png is in the same folder as this HTML file. -->
         <img src="CISlogo.png" alt="CIS Department Logo" class="header-logo">
         <h1>CIS Workshops Sign-Up Hub</h1>
     </header>
@@ -210,59 +250,79 @@
         <div class="workshop-card">
             <h2>CompTIA Network+ Study Workshop</h2>
             <p>
-                Join our guided study group to prepare for the CompTIA Network+ (N10-008) certification exam. Select a session below to register.
+                Join our guided study group to prepare for the CompTIA Network+ (N10-00) certification exam. Select a session below to register.
             </p>
             
             <ul class="session-list">
-                <!-- IMPORTANT: Replace the href="#" with your registration link for each session -->
                 <li>
                     <div class="session-details">
                         <span class="session-title">Domain 1: Networking Fundamentals</span>
                         <p class="session-info">Date: August 28th, 2025 | Time: 2:00 PM - 4:00 PM | Location: Room B204</p>
                     </div>
-                    <a href="#" target="_blank" rel="noopener noreferrer" class="signup-btn">Register</a>
+                    <div class="button-group">
+                        <a href="https://forms.office.com/r/CtC74rHMGU" target="_blank" rel="noopener noreferrer" class="signup-btn">Register</a>
+                        <a href="https://stripo.email/storage/ics/2025/8/ics_cis-network-study-workshops-domain-1-2025-08-07-135241.ics" target="_blank" rel="noopener noreferrer" class="calendar-btn">Add to Calendar 📅</a>
+                    </div>
                 </li>
                 <li>
                     <div class="session-details">
                         <span class="session-title">Domain 2: Network Implementations</span>
                         <p class="session-info">Date: September 4th, 2025 | Time: 2:00 PM - 4:00 PM | Location: Room B204</p>
                     </div>
-                    <a href="#" target="_blank" rel="noopener noreferrer" class="signup-btn">Register</a>
+                    <div class="button-group">
+                        <a href="https://forms.cloud.microsoft/r/yVRgMYjQL4" target="_blank" rel="noopener noreferrer" class="signup-btn">Register</a>
+                        <a href="https://stripo.email/storage/ics/2025/8/ics_comptia-network-study-workshop-domain-2-network-implementation-2025-08-11-144347.ics" target="_blank" rel="noopener noreferrer" class="calendar-btn">Add to Calendar 📅</a>
+                    </div>
                 </li>
                 <li>
                     <div class="session-details">
                         <span class="session-title">Domain 3: Network Operations</span>
                         <p class="session-info">Date: September 11th, 2025 | Time: 2:00 PM - 4:00 PM | Location: Room B204</p>
                     </div>
-                    <a href="#" target="_blank" rel="noopener noreferrer" class="signup-btn">Register</a>
+                    <div class="button-group">
+                        <a href="https://forms.cloud.microsoft/r/cF05aLidAh" target="_blank" rel="noopener noreferrer" class="signup-btn">Register</a>
+                        <a href="https://stripo.email/storage/ics/2025/8/ics_comptia-network-study-workshop-domain-3-network-operations-2025-08-11-144559.ics" target="_blank" rel="noopener noreferrer" class="calendar-btn">Add to Calendar 📅</a>
+                    </div>
                 </li>
                 <li>
                     <div class="session-details">
                         <span class="session-title">Domain 4: Network Security</span>
                         <p class="session-info">Date: September 18th, 2025 | Time: 2:00 PM - 4:00 PM | Location: Room B204</p>
                     </div>
-                    <a href="#" target="_blank" rel="noopener noreferrer" class="signup-btn">Register</a>
+                    <div class="button-group">
+                        <a href="https://forms.cloud.microsoft/r/q6bUhuPhhT" target="_blank" rel="noopener noreferrer" class="signup-btn">Register</a>
+                        <a href="https://stripo.email/storage/ics/2025/8/ics_cis-network-study-workshop-domain-4-network-security-2025-08-11-144722.ics" target="_blank" rel="noopener noreferrer" class="calendar-btn">Add to Calendar 📅</a>
+                    </div>
                 </li>
                 <li>
                     <div class="session-details">
                         <span class="session-title">Domain 5: Network Troubleshooting</span>
                         <p class="session-info">Date: September 25th, 2025 | Time: 2:00 PM - 4:00 PM | Location: Room B204</p>
                     </div>
-                    <a href="#" target="_blank" rel="noopener noreferrer" class="signup-btn">Register</a>
+                    <div class="button-group">
+                        <a href="https://forms.cloud.microsoft/r/HxkUqBSAHx" target="_blank" rel="noopener noreferrer" class="signup-btn">Register</a>
+                        <a href="https://stripo.email/storage/ics/2025/8/ics_cis-network-study-workshop-domain-5-network-troubleshooting-2025-08-11-145059.ics" target="_blank" rel="noopener noreferrer" class="calendar-btn">Add to Calendar 📅</a>
+                    </div>
                 </li>
                 <li>
                     <div class="session-details">
                         <span class="session-title">All-Domain Review Day</span>
                         <p class="session-info">Date: October 2nd, 2025 | Time: 2:00 PM - 4:00 PM | Location: Room B204</p>
                     </div>
-                    <a href="#" target="_blank" rel="noopener noreferrer" class="signup-btn">Register</a>
+                    <div class="button-group">
+                        <a href="https://forms.cloud.microsoft/r/7n1XMxiMt8" target="_blank" rel="noopener noreferrer" class="signup-btn">Register</a>
+                        <a href="https://stripo.email/storage/ics/2025/8/ics_cis-network-study-workshop-all-domain-review-day-2025-08-11-145500.ics" target="_blank" rel="noopener noreferrer" class="calendar-btn">Add to Calendar 📅</a>
+                    </div>
                 </li>
                 <li>
                     <div class="session-details">
                         <span class="session-title">Simulated Exam Day</span>
                         <p class="session-info">Date: October 9th, 2025 | Time: 2:00 PM - 4:00 PM | Location: Room B204</p>
                     </div>
-                    <a href="#" target="_blank" rel="noopener noreferrer" class="signup-btn">Register</a>
+                    <div class="button-group">
+                        <a href="https://forms.cloud.microsoft/r/2PfKkJvmhG" target="_blank" rel="noopener noreferrer" class="signup-btn">Register</a>
+                        <a href="https://stripo.email/storage/ics/2025/8/ics_cis-network-study-workshop-simulated-exam-day-2025-08-11-145813.ics" target="_blank" rel="noopener noreferrer" class="calendar-btn">Add to Calendar 📅</a>
+                    </div>
                 </li>
             </ul>
         </div>
@@ -275,55 +335,75 @@
             </p>
 
             <ul class="session-list">
-                <!-- IMPORTANT: Replace the href="#" with your registration link for each session -->
                 <li>
                     <div class="session-details">
                         <span class="session-title">Domain 1: General Security Concepts</span>
                         <p class="session-info">Date: August 26th, 2025 | Time: 2:00 PM - 4:00 PM | Location: Room B206</p>
                     </div>
-                    <a href="#" target="_blank" rel="noopener noreferrer" class="signup-btn">Register</a>
+                    <div class="button-group">
+                        <a href="https://forms.office.com/r/CtC74rHMGU" target="_blank" rel="noopener noreferrer" class="signup-btn">Register</a>
+                        <a href="#" target="_blank" rel="noopener noreferrer" class="calendar-btn">Add to Calendar 📅</a>
+                    </div>
                 </li>
                 <li>
                     <div class="session-details">
                         <span class="session-title">Domain 2: Threats, Vulnerabilities, & Mitigations</span>
                         <p class="session-info">Date: September 2nd, 2025 | Time: 2:00 PM - 4:00 PM | Location: Room B206</p>
                     </div>
-                    <a href="#" target="_blank" rel="noopener noreferrer" class="signup-btn">Register</a>
+                    <div class="button-group">
+                        <a href="#" target="_blank" rel="noopener noreferrer" class="signup-btn">Register</a>
+                        <a href="#" target="_blank" rel="noopener noreferrer" class="calendar-btn">Add to Calendar 📅</a>
+                    </div>
                 </li>
                 <li>
                     <div class="session-details">
                         <span class="session-title">Domain 3: Security Architecture</span>
                         <p class="session-info">Date: September 9th, 2025 | Time: 2:00 PM - 4:00 PM | Location: Room B206</p>
                     </div>
-                    <a href="#" target="_blank" rel="noopener noreferrer" class="signup-btn">Register</a>
+                    <div class="button-group">
+                        <a href="#" target="_blank" rel="noopener noreferrer" class="signup-btn">Register</a>
+                        <a href="#" target="_blank" rel="noopener noreferrer" class="calendar-btn">Add to Calendar 📅</a>
+                    </div>
                 </li>
                 <li>
                     <div class="session-details">
                         <span class="session-title">Domain 4: Security Operations</span>
                         <p class="session-info">Date: September 16th, 2025 | Time: 2:00 PM - 4:00 PM | Location: Room B206</p>
                     </div>
-                    <a href="#" target="_blank" rel="noopener noreferrer" class="signup-btn">Register</a>
+                    <div class="button-group">
+                        <a href="#" target="_blank" rel="noopener noreferrer" class="signup-btn">Register</a>
+                        <a href="#" target="_blank" rel="noopener noreferrer" class="calendar-btn">Add to Calendar 📅</a>
+                    </div>
                 </li>
                 <li>
                     <div class="session-details">
                         <span class="session-title">Domain 5: Security Program Management & Oversight</span>
                         <p class="session-info">Date: September 23rd, 2025 | Time: 2:00 PM - 4:00 PM | Location: Room B206</p>
                     </div>
-                    <a href="#" target="_blank" rel="noopener noreferrer" class="signup-btn">Register</a>
+                    <div class="button-group">
+                        <a href="#" target="_blank" rel="noopener noreferrer" class="signup-btn">Register</a>
+                        <a href="#" target="_blank" rel="noopener noreferrer" class="calendar-btn">Add to Calendar 📅</a>
+                    </div>
                 </li>
                  <li>
                     <div class="session-details">
                         <span class="session-title">All-Domain Review Day</span>
                         <p class="session-info">Date: September 30th, 2025 | Time: 2:00 PM - 4:00 PM | Location: Room B206</p>
                     </div>
-                    <a href="#" target="_blank" rel="noopener noreferrer" class="signup-btn">Register</a>
+                    <div class="button-group">
+                        <a href="#" target="_blank" rel="noopener noreferrer" class="signup-btn">Register</a>
+                        <a href="#" target="_blank" rel="noopener noreferrer" class="calendar-btn">Add to Calendar 📅</a>
+                    </div>
                 </li>
                 <li>
                     <div class="session-details">
                         <span class="session-title">Simulated Exam Day</span>
                         <p class="session-info">Date: October 7th, 2025 | Time: 2:00 PM - 4:00 PM | Location: Room B206</p>
                     </div>
-                    <a href="#" target="_blank" rel="noopener noreferrer" class="signup-btn">Register</a>
+                    <div class="button-group">
+                        <a href="#" target="_blank" rel="noopener noreferrer" class="signup-btn">Register</a>
+                        <a href="#" target="_blank" rel="noopener noreferrer" class="calendar-btn">Add to Calendar 📅</a>
+                    </div>
                 </li>
             </ul>
         </div>
